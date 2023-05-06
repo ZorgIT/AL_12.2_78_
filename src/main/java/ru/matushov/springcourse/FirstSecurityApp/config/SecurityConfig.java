@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //configure auth
         http.csrf().disable() //TODO enable csrf protect
                 .authorizeRequests()
-                .antMatchers("/auth/login","/error").permitAll() //access granted to all
+                .antMatchers("/auth/login", "/error", "/auth/registration").permitAll() //access granted to all
                 .anyRequest().authenticated() //only after auth
                 .and()//go to configure
                 .formLogin().loginPage("/auth/login")
